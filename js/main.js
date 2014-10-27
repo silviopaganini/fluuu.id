@@ -1,6 +1,3 @@
-(function(){
-
-
 var scene, camera, renderer, controls;
 
 var plane_material, composer;
@@ -176,5 +173,3 @@ function onWindowResize() {
     camera.bottom = -window.innerHeight * 0.5;
     camera.updateProjectionMatrix();
 };
-
-})();
