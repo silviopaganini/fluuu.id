@@ -75,7 +75,7 @@ function initPass(){
     // fullBoxBlurPass = new WAGNER.FullBoxBlurPass();
     // zoomBlurPass = new WAGNER.ZoomBlurPass();
      multiPassBloomPass = new WAGNER.MultiPassBloomPass();
-    denoisePass = new WAGNER.DenoisePass();
+    // denoisePass = new WAGNER.DenoisePass();
     // sepiaPass = new WAGNER.SepiaPass();
     // noisePass = new WAGNER.NoisePass();
     vignettePass = new WAGNER.VignettePass();
