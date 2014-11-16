@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="content-language" content="en-US" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>FLUUUID | labs</title>
+
+        <meta name="robots" content="all" />
+        <meta name="description" content="fluuu.id is a collective of developers, designers and creative technologists striving for cutting edge experiences online and offline.">
+        <meta name="keywords" content="interactive, design, development, collective, kinect, studio, production, Flash, AS3, HTML, HTML5, openFrameworks, creative coding, WebGL, processing, installation, art, technology, UK, London" />
+        <meta name="copyright" content="fluuu.id" />
+        <meta name="contact" content="heeey@fluuu.id" />
+
+        <meta property="og:url" content="http://fluuu.id" />
+        <meta property="og:image" content="http://fluuu.id/apple-touch-icon-152x152.png"/>
+        <meta property="og:site_name" content="fluuu.id" />
+        <meta property="og:title" content="fluuu.id" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="fluuu.id is a collective of developers, designers and creative technologists striving for cutting edge experiences online and offline." />
+
+        <link rel="shortcut icon" href="http://fluuu.id/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="http://fluuu.id/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://fluuu.id/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://fluuu.id/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="http://fluuu.id/apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://fluuu.id/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="http://fluuu.id/apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://fluuu.id/apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://fluuu.id/apple-touch-icon-152x152.png" />
+
+        <link rel="stylesheet" href="/css/site.css">
+
+    </head>
+    <body id="experiment-wrapper">
+        <div id="wrapper">
+            <header>
+                <div class="table">
+                    <div class="row">
+                        <div class="cell">
+                            <a href="/" class="link-back"><div><span class="arrow"></span><h1 id="exp-title"></h1></div></a>
+                            <a href="/"><img src="img/fluuuid.svg" alt="FLUUUID" class="logo" /></a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section id="experiment">
+                <div id="exp-container"></div>
+            </section>
+        </div>
+
+        <script type="text/javascript">
+            var experiments = ['stars', 'tubes', 'box-physics', 'vendetta']
+            var baseURL = 'http://labs.fluuu.id/';
+
+            var exp = window.location.hash.split("#").join("");
+            var iframe = document.createElement('iframe');
+            iframe.src = baseURL + exp
+            document.getElementById('exp-container').appendChild(iframe)
+
+            document.getElementById('exp-title').innerHTML = exp;   
+
+        </script>
+
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-55276898-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+    </body>
+</html>

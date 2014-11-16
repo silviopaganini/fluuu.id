@@ -1,3 +1,7 @@
+(function(){
+
+
+
 var scene, camera, renderer, controls;
 
 var plane_material, composer;
@@ -126,8 +130,10 @@ function buildScene() {
     scene.add(plane_mesh);
 
     renderer = new THREE.WebGLRenderer({antialias: false, alpha: false});
-    renderer.autoClearColor = true
-    document.body.appendChild( renderer.domElement );
+    renderer.inputGamma = true;
+    renderer.outputGamma = true;
+    renderer.autoClear = false;
+    document.getElementById('containerCanvas').insertBefore(renderer.domElement, document.getElementById('containerCanvas').childNodes[0]);
     renderer.setSize( window.innerWidth, window.innerHeight);
 
     clock.start();
@@ -173,3 +179,16 @@ function onWindowResize() {
     camera.bottom = -window.innerHeight * 0.5;
     camera.updateProjectionMatrix();
 };
+
+console.log('asdasd');
+
+$('.labs').click(function(e){
+    e.preventDefault();
+    target = $('section[id="labs"]')
+
+    $('html, body').animate({
+        scrollTop: target.offset().top
+    }, 700);
+})    
+
+})();
