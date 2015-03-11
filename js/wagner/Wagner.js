@@ -9,6 +9,7 @@ WAGNER.fragmentShadersPath = './fragment-shaders';
 WAGNER.assetsPath = './assets';
 
 WAGNER.log = function() {
+	return;
 	console.log( Array.prototype.slice.call( arguments ).join( ' ' ) );
 };
 
