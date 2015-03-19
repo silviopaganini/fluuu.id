@@ -51,6 +51,17 @@
 }
 
 
+.animateCanvas
+{
+  /*opacity: 1;*/
+  /*transition: opacity 2s;*/
+}
+
+canvas
+{
+  /*opacity : 0;*/
+}
+
 
 
 /* GLOBALS */

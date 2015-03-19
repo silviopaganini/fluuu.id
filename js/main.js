@@ -143,6 +143,10 @@ function buildScene() {
     clock.start();
 
     addControls();
+
+    setTimeout(function(){
+     document.getElementsByTagName('canvas')[0].className += "animateCanvas"
+    }, 2000);
 };
 
 function addControls()

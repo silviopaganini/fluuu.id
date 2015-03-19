@@ -265,11 +265,11 @@
         {
             float alpha = sin(v_uv.y * M_PI) / 5.;
 
-            float time2 = time / 8.;
+            float time2 = time / 10.;
 
-            float r = sin(time2);
-            float g = sin(time2/1.5);
-            float b = sin(time2);
+            float r = .5 + sin(time2);
+            float g = .5 + cos(time2);
+            float b = 1. - sin(time2);
 
             gl_FragColor = vec4(r, g, b, alpha);
         }
@@ -293,7 +293,7 @@
                 <ul>
                 
                    <li>
-                        <a href="http://iotorama.io" target="_blank">
+                        <a href="http://www.alpha-ville.co.uk/announcing-iotorama-new-interactive-project/" target="_blank">
                           <div class="img" style="background-image:url(/img/content/thumb_iot.jpg)"></div>
                           <div class="table">
                               <div class="row">
@@ -431,6 +431,7 @@
     </body>
 
     <script>
+
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
