@@ -62,8 +62,6 @@ canvas
   opacity : 0;
   transition: opacity 2s;
   -webkit-transition: opacity 2s;
-  -webkit-transition-delay: .5s; /* Safari */
-  transition-delay: .5s;
 }
 
 
