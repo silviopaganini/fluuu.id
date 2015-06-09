@@ -186,7 +186,11 @@ li {
   opacity:1; 
   background-size:cover;
   background-position:center center;
-  -webkit-transition:0.3s ease;
+  transform: rotateZ(0);
+  -webkit-transition:0.5s ease-in-out;
+  transition:0.5s ease;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 #splash .arrow { background:url(../img/down_arrow.svg); background-size:cover; }
@@ -230,6 +234,8 @@ li .img {
 
 li:hover .img {
   opacity:0.2;
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
 }
 
 li:hover .arrow {
