@@ -78,22 +78,25 @@ function initPass(){
     composer = new WAGNER.Composer( renderer, { useRGBA: false } );
     composer.setSize( window.innerWidth, window.innerHeight );
 
-    // invertPass = new WAGNER.InvertPass();
+    invertPass = new WAGNER.InvertPass();
      // boxBlurPass = new WAGNER.BoxBlurPass();
     // fullBoxBlurPass = new WAGNER.FullBoxBlurPass();
     // zoomBlurPass = new WAGNER.ZoomBlurPass();
      multiPassBloomPass = new WAGNER.MultiPassBloomPass();
     // denoisePass = new WAGNER.DenoisePass();
     // sepiaPass = new WAGNER.SepiaPass();
-    // noisePass = new WAGNER.NoisePass();
+    noisePass = new WAGNER.NoisePass();
     vignettePass = new WAGNER.VignettePass();
-    // vignette2Pass = new WAGNER.Vignette2Pass();
-    // CGAPass = new WAGNER.CGAPass();
+    vignette2Pass = new WAGNER.Vignette2Pass();
+    vignette2Pass.params.boost = 2
+    vignette2Pass.params.reduction = 1
+    
+    CGAPass = new WAGNER.CGAPass();
     // edgeDetectionPass = new WAGNER.EdgeDetectionPass();
     dirtPass = new WAGNER.DirtPass();
     blendPass = new WAGNER.BlendPass();
     // guidedFullBoxBlurPass = new WAGNER.GuidedFullBoxBlurPass();
-    // SSAOPass = new WAGNER.SSAOPass();
+    SSAOPass = new WAGNER.SSAOPass();
 }
 
 function renderPass() {
@@ -101,9 +104,15 @@ function renderPass() {
     composer.render( scene, camera );
     
     composer.pass( multiPassBloomPass );
+    // composer.pass( CGAPass );
+    // noisePass
     composer.pass( blendPass );
     composer.pass( dirtPass ) ;
     composer.pass( vignettePass );
+    composer.pass( vignette2Pass );
+    // composer.pass( invertPass );
+    
+    // composer.pass( SSAOPass );
 
     composer.toScreen();
 }
