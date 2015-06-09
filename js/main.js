@@ -78,25 +78,25 @@ function initPass(){
     composer = new WAGNER.Composer( renderer, { useRGBA: false } );
     composer.setSize( window.innerWidth, window.innerHeight );
 
-    invertPass = new WAGNER.InvertPass();
+    // invertPass = new WAGNER.InvertPass();
      // boxBlurPass = new WAGNER.BoxBlurPass();
     // fullBoxBlurPass = new WAGNER.FullBoxBlurPass();
     // zoomBlurPass = new WAGNER.ZoomBlurPass();
      multiPassBloomPass = new WAGNER.MultiPassBloomPass();
     // denoisePass = new WAGNER.DenoisePass();
     // sepiaPass = new WAGNER.SepiaPass();
-    noisePass = new WAGNER.NoisePass();
+    // noisePass = new WAGNER.NoisePass();
     vignettePass = new WAGNER.VignettePass();
     vignette2Pass = new WAGNER.Vignette2Pass();
     vignette2Pass.params.boost = 2
     vignette2Pass.params.reduction = 1
     
-    CGAPass = new WAGNER.CGAPass();
+    // CGAPass = new WAGNER.CGAPass();
     // edgeDetectionPass = new WAGNER.EdgeDetectionPass();
     dirtPass = new WAGNER.DirtPass();
     blendPass = new WAGNER.BlendPass();
     // guidedFullBoxBlurPass = new WAGNER.GuidedFullBoxBlurPass();
-    SSAOPass = new WAGNER.SSAOPass();
+    // SSAOPass = new WAGNER.SSAOPass();
 }
 
 function renderPass() {
@@ -132,7 +132,7 @@ function buildScene() {
         vertexShader       : document.getElementById("shader-vertex-terrain").textContent,
         fragmentShader     : document.getElementById("shader-fragment-terrain").textContent,
         wireframe          : false,
-        wireframeLinewidth : 1,
+        // wireframeLinewidth : 1,
         transparent        : true,
         uniforms           : uniforms
     });
@@ -142,7 +142,7 @@ function buildScene() {
     plane_mesh.position.y = -0.5;
     scene.add(plane_mesh);
 
-    renderer = new THREE.WebGLRenderer({antialias: false, alpha: false});
+    renderer = new THREE.WebGLRenderer({antialias: true, alpha: false});
     renderer.inputGamma = true;
     renderer.outputGamma = true;
     renderer.autoClear = false;
@@ -152,10 +152,6 @@ function buildScene() {
     clock.start();
 
     addControls();
-
-    setTimeout(function(){
-     document.getElementsByTagName('canvas')[0].className += "animateCanvas"
-    }, 2000);
 };
 
 function addControls()
@@ -207,8 +203,8 @@ $('.labs').click(function(e){
     target = $('section[id="labs"]')
 
     $('html, body').animate({
-        scrollTop: target.offset().top
-    }, 700);
+        scrollTop: target.offset().top 
+    }, '700');
 })    
 
 })();
