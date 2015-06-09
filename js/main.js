@@ -171,11 +171,12 @@ function addControls()
 
 function update() {
     
-    requestAnimationFrame(update);
     controls.update();
 
     plane_material.uniforms['time'].value = clock.getElapsedTime();
     render()
+    
+    requestAnimationFrame(update);
 };
 
 function render() {

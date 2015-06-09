@@ -312,16 +312,33 @@ WAGNER.Pass = function() {
 
 };
 
+WAGNER.GLSLList = {
+	'blend-fs.glsl'     : "varying vec2 a;uniform sampler2D tInput;uniform sampler2D tInput2;uniform vec2 resolution;uniform vec2 resolution2;uniform float aspectRatio;uniform float aspectRatio2;uniform float opacity;uniform int mode;uniform int sizeMode;vec2 b=a;float e(float c,float d){return c<.5?2.*c*d:1.-2.*(1.-c)*(1.-d);}float f(float c,float d){return d<.5?2.*c*d+c*c*(1.-2.*d):sqrt(c)*(2.*d-1.)+2.*c*(1.-d);}float g(float c,float d){return d==0.?d:max(1.-(1.-c)/d,0.);}float h(float c,float d){return d==1.?d:min(c/(1.-d),1.);}float i(float c,float d){return max(c+d-1.,0.);}float j(float c,float d){return min(c+d,1.);}float k(float c,float d){return d<.5?i(c,2.*d):j(c,2.*(d-.5));}void main(){if(sizeMode==1){if(aspectRatio2>aspectRatio){b.x*=aspectRatio/aspectRatio2;    b.x+=.5*(1.-aspectRatio/aspectRatio2);}if(aspectRatio2<aspectRatio){b.y*=aspectRatio2/aspectRatio;    b.y+=.5*(1.-aspectRatio2/aspectRatio);}}vec4 c,d;c=texture2D(tInput,a);d=texture2D(tInput2,b);if(mode==1){gl_FragColor=c;    gl_FragColor.a*=opacity;return;}if(mode==2){}if(mode==3){gl_FragColor=min(c,d);    return;}if(mode==4){gl_FragColor=c*d;    return;}if(mode==5){gl_FragColor=vec4(g(c.r,d.r),g(c.g,d.g),g(c.b,d.b),g(c.a,d.a));    return;}if(mode==6){gl_FragColor=max(c+d-1.,0.);    return;}if(mode==7){}if(mode==8){gl_FragColor=max(c,d);    return;}if(mode==9){gl_FragColor=1.-(1.-c)*(1.-d);    gl_FragColor=gl_FragColor*opacity+c*(1.-opacity);return;}if(mode==10){gl_FragColor=vec4(h(c.r,d.r),h(c.g,d.g),h(c.b,d.b),h(c.a,d.a));    return;}if(mode==11){gl_FragColor=min(c+d,1.);    return;}if(mode==12){}if(mode==13){gl_FragColor=(gl_FragColor=vec4(e(c.r,d.r),e(c.g,d.g),e(c.b,d.b),e(c.a,d.a)));    gl_FragColor=gl_FragColor*opacity+c*(1.-opacity);return;}if(mode==14){gl_FragColor=vec4(f(c.r,d.r),f(c.g,d.g),f(c.b,d.b),f(c.a,d.a));    return;}if(mode==15){gl_FragColor=vec4(e(c.r,d.r),e(c.g,d.g),e(c.b,d.b),e(c.a,d.a));    gl_FragColor=gl_FragColor*opacity+c*(1.-opacity);return;}if(mode==16){}if(mode==17){gl_FragColor=vec4(k(c.r,d.r),k(c.g,d.g),k(c.b,d.b),k(c.a,d.a));    return;}if(mode==18){}if(mode==19){}if(mode==20){gl_FragColor=abs(c-d);    gl_FragColor.a=c.a+d.b;return;}if(mode==21)gl_FragColor=c+d-2.*c*d;if(mode==22){}if(mode==23){}gl_FragColor=vec4(1,0,1,1);}",
+	'vignette-fs.glsl'  : "uniform sampler2D tInput;uniform float falloff;uniform float amount;varying vec2 a;void main(){vec4 b=texture2D(tInput,a);float c=distance(a,vec2(.5));b.rgb*=smoothstep(.8,falloff*.799,c*(amount+falloff));gl_FragColor=b;}",
+	'vignette2-fs.glsl' : "varying vec2 a;uniform sampler2D tInput;uniform vec2 resolution;uniform float reduction;uniform float boost;void main(){vec4 b=texture2D(tInput,a);vec2 c=resolution*.5;float d=distance(c,gl_FragCoord.xy)/resolution.x;d=boost-d*reduction;b.rgb*=d;gl_FragColor=b;}",
+	'box-blur-fs.glsl'  : "varying vec2 a;uniform sampler2D tInput;uniform vec2 delta;float i(vec3 b,float c){return fract(sin(dot(gl_FragCoord.xyz+c,b))*43758.5453+c);}void main(){vec4 b=vec4(0);float c,d;c=0.;d=i(vec3(12.9898,78.233,151.7182),0.);for(float e=-30.;e<=30.;e++){float f,g;f=(e+d-.5)/30.;g=1.-abs(f);vec4 h=texture2D(tInput,a+delta*f);h.rgb*=h.a;b+=h*g;c+=g;}gl_FragColor=b/c;gl_FragColor.rgb/=gl_FragColor.a+1e-5;}",
+	'zoom-blur-fs.glsl' : "uniform sampler2D tInput;uniform vec2 center;uniform vec2 resolution;uniform float strength;varying vec2 a;float j(vec3 b,float c){return fract(sin(dot(gl_FragCoord.xyz+c,b))*43758.5453+c);}void main(){vec4 b=vec4(0);float c,e;c=0.;vec2 d=center-a*resolution;e=j(vec3(12.9898,78.233,151.7182),0.);for(float f=0.;f<=40.;f++){float g,h;g=(f+e)/40.;h=4.*(g-g*g);vec4 i=texture2D(tInput,a+d*g*strength/resolution);i.rgb*=i.a;b+=i*h;c+=h;}gl_FragColor=b/c;gl_FragColor.rgb/=gl_FragColor.a+1e-5;}",
+	'orto-vs.glsl'      : "varying vec2 a;void main(){a=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1);}",
+	"copy-fs.glsl"      : "varying vec2 a;uniform sampler2D tInput;void main(){gl_FragColor=texture2D(tInput,a);}",
+
+
+}
+
 WAGNER.Pass.prototype.loadShader = function( id, c ) {
 
 	var self = this;
-	WAGNER.loadShader( WAGNER.vertexShadersPath + '/orto-vs.glsl', function( vs ) {
-		WAGNER.loadShader( WAGNER.fragmentShadersPath + '/' + id, function( fs ) {
-			self.shader = WAGNER.processShader( vs, fs );
-			//self.mapUniforms( self.shader.uniforms );
-			if( c ) c.apply( self );
-		} );
-	} );
+
+	self.shader = WAGNER.processShader( WAGNER.GLSLList['orto-vs.glsl'], WAGNER.GLSLList[id] );
+	// console.log(self.shader)
+	if( c ) c.apply( self );
+
+	// WAGNER.loadShader( WAGNER.vertexShadersPath + '/orto-vs.glsl', function( vs ) {
+	// 	WAGNER.loadShader( WAGNER.fragmentShadersPath + '/' + id, function( fs ) {
+	// 		self.shader = WAGNER.processShader( vs, fs );
+	// 		//self.mapUniforms( self.shader.uniforms );
+	// 		if( c ) c.apply( self );
+	// 	} );
+	// } );
 
 };
 
