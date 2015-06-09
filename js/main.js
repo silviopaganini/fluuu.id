@@ -204,7 +204,7 @@ $('.labs').click(function(e){
 
     $('html, body').animate({
         scrollTop: target.offset().top 
-    }, '700');
+    }, 'slow');
 })    
 
 })();
