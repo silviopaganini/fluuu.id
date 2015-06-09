@@ -92,7 +92,7 @@ function initPass(){
     
     // CGAPass = new WAGNER.CGAPass();
     // edgeDetectionPass = new WAGNER.EdgeDetectionPass();
-    dirtPass = new WAGNER.DirtPass();
+    // dirtPass = new WAGNER.DirtPass();
     blendPass = new WAGNER.BlendPass();
     // guidedFullBoxBlurPass = new WAGNER.GuidedFullBoxBlurPass();
     // SSAOPass = new WAGNER.SSAOPass();
@@ -106,7 +106,7 @@ function renderPass() {
     // composer.pass( CGAPass );
     // noisePass
     composer.pass( blendPass );
-    composer.pass( dirtPass ) ;
+    // composer.pass( dirtPass ) ;
     composer.pass( vignettePass );
     composer.pass( vignette2Pass );
     // composer.pass( invertPass );
@@ -162,11 +162,11 @@ function addControls()
     controls.addEventListener( 'change', render );
     window.addEventListener("resize", onWindowResize);
 
-    stats = new Stats();
-    stats.domElement.style.position = 'absolute';
-    stats.domElement.style.top = '0px';
-    stats.domElement.style.display = 'none';
-    document.body.appendChild(stats.domElement);
+    // stats = new Stats();
+    // stats.domElement.style.position = 'absolute';
+    // stats.domElement.style.top = '0px';
+    // stats.domElement.style.display = 'none';
+    // document.body.appendChild(stats.domElement);
 }
 
 function update() {
@@ -187,7 +187,7 @@ function render() {
         renderPass();
     }
     
-    stats.update();
+    // stats.update();
 }
 
 //EVENTS
