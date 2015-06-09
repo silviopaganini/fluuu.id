@@ -23,7 +23,10 @@
   font-style: normal; 
 }
 
-
+.labs
+{
+  display: none;
+}
 
 
 /* HELPERS */
