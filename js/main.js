@@ -203,7 +203,7 @@ function onWindowResize() {
 function animateBody()
 {
     document.body.scrollTop += ((target.offsetTop + 15) - document.body.scrollTop) * .1;
-    if(document.body.scrollTop < (target.offsetTop + 15)){
+    if(document.body.scrollTop < (target.offsetTop + 4)){
         requestAnimationFrame(animateBody);
     }
 }
