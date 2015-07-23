@@ -24478,7 +24478,7 @@ THREE.WebGLProgram = ( function () {
                 'precision ' + parameters.precision + ' float;',
                 'precision ' + parameters.precision + ' int;',
 
-                ( parameters.bumpMap || parameters.normalMap || parameters.flatShading ) ? '#extension GL_OES_standard_derivatives : enable' : '',
+                // ( parameters.bumpMap || parameters.normalMap || parameters.flatShading ) ? '#extension GL_OES_standard_derivatives : enable' : '',
 
                 customDefines,
 
