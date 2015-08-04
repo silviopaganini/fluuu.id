@@ -184,7 +184,7 @@ li {
   left:0; 
   width:100%; 
   height:100%; 
-  opacity:1; 
+  opacity:.8; 
   background-size:cover;
   background-position:center center;
   transform: rotateZ(0);
@@ -219,7 +219,7 @@ and (min-width : 1024px) {
 li h2 , li h3 { opacity:0; -webkit-transition:0.3s ease; }
 li .arrow { opacity:0; -webkit-transition:0.3s ease 0.1s; }
 li .img {
-  opacity:1;
+  opacity:.7;
 }
 }
 
@@ -229,7 +229,7 @@ and (min-width : 1824px) {
 li h2 , li h3 { opacity:0; -webkit-transition:0.3s ease; }
 li .arrow { opacity:0; -webkit-transition:0.3s ease 0.1s; }
 li .img {
-  opacity:1;
+  opacity:.7;
 }
 }
 
