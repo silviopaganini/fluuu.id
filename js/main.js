@@ -11,8 +11,8 @@ var target;
 
 var options =
 {
-    valley_elevation : .5,
-    noise_elevation  : .5,
+    valley_elevation : 10.5,
+    noise_elevation  : 10.5,
     speed            : 0.4
 }
 
@@ -130,9 +130,9 @@ function buildScene() {
     plane_material = new THREE.ShaderMaterial({
         vertexShader       : document.getElementById("shader-vertex-terrain").textContent,
         fragmentShader     : document.getElementById("shader-fragment-terrain").textContent,
-        wireframe          : false,
-        // wireframeLinewidth : 1,
-        transparent        : true,
+        // wireframe          : true,
+        // wireframeLinewidth : 10,
+        // transparent        : true,
         uniforms           : uniforms
     });
 
@@ -202,7 +202,7 @@ function onWindowResize() {
 
 function animateBody()
 {
-    document.body.scrollTop += ((target.offsetTop + 15) - document.body.scrollTop) * .1;
+    document.body.scrollTop += ((target.offsetTop + 15) - document.body.scrollTop) * Math.pow(.05);
     if(document.body.scrollTop < (target.offsetTop + 4)){
         requestAnimationFrame(animateBody);
     }

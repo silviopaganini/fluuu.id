@@ -70,19 +70,18 @@
 
             void main()
             {
-                gl_PointSize = 4.;
-                v_uv          = uv;
+                v_uv = uv;
 
                 // First perlin passes
-                float displacement  = pnoise( .4 * position + vec3( 0, speed * time, 0 ), vec3( 100.0 ) ) * 1. * noise_elevation;
+                float displacement  = pnoise( .4 * position + vec3( 0, speed * time, 0 ), vec3( 100.0 ) ) * 1. * .7;
                 // displacement       += pnoise( 2. * position + vec3( 0, speed * time * 5., 0 ), vec3( 100. ) ) * .3 * noise_elevation;
                 // displacement       += pnoise( 8. * position + vec3( 0, speed * time * 20., 0 ), vec3( 100. ) ) * .1 * noise_elevation;
 
                 // Sinus
-                displacement = displacement + (sin(position.x / 2. - M_PI / 2.)) * valley_elevation;
+                displacement = displacement + (sin(position.x / 2. - M_PI / 2.)) * .8;
 
                 vec3 newPosition = vec3(position.x,position.y,displacement);
-                gl_Position      = projectionMatrix * modelViewMatrix * vec4( newPosition, 1. );
+                gl_Position      = projectionMatrix * modelViewMatrix * vec4( newPosition, 1.2 );
             }
 
     </script>
@@ -171,6 +170,38 @@
                           </div>
                         </a>    
                     </li>
+
+                    <li>
+                        <a href="experiment.html#generative-forms">
+                          <div class="img" style="background-image:url(/img/content/thumb_generative.jpg)"></div>
+                          <div class="table">
+                              <div class="row">
+                                  <div class="cell">
+                                      <h2>Mirrored generative forms</h2>
+                                      <h3>#WebGL #Mirroring</h3>
+                                      <span class="arrow"></span>
+                                  </div>
+                              </div>
+                          </div>
+                        </a>    
+                    </li>
+
+                    <li>
+                        <a href="experiment.html#geo">
+                          <div class="img" style="background-image:url(/img/content/thumb_geometric.jpg)"></div>
+                          <div class="table">
+                              <div class="row">
+                                  <div class="cell">
+                                      <h2>Generative geometry</h2>
+                                      <h3>#WebGL #Geometry</h3>
+                                      <span class="arrow"></span>
+                                  </div>
+                              </div>
+                          </div>
+                        </a>    
+                    </li>
+
+                    
 
                     <li>
                         <a href="experiment.html#lines">
@@ -282,11 +313,12 @@
                 <div class="table">
                     <div class="row">
                         <div class="cell">
-                            <a href="mailto:heeey@fluuu.id">heeey@fluuu.id</a><br><br>
-                            <a href="http://twitter.com/fluuuid">
-                                <img src="/img/twitter.png" style="width: 15px;">
-                                FLUUUID
-                            </a>
+                            <a href="mailto:heeey@fluuu.id">heeey@fluuu.id</a><br><br><br>
+                            <a href="http://twitter.com/fluuuid" target="_blank"><img src="/img/twitter.png" style="width: 30px;"></a>
+                            <a href="https://www.facebook.com/fluuuid/" target="_blank"><img src="/img/fb.png" style="width: 30px;"></a>
+                            <a href="https://github.com/fluuuid/" target="_blank"><img src="/img/gh.png" style="width: 30px;"></a>
+                            <a href="https://www.linkedin.com/company/fluuuid" target="_blank"><img src="/img/in.png" style="width: 30px;"></a>
+                            
                         </div>
                     </div>
                 </div>  
