@@ -208,6 +208,12 @@ li {
   cursor:pointer;
 }
 
+li > a:hover
+{
+  text-decoration: none;
+}
+
+
 .img { 
   position:absolute; 
   top:0; 
