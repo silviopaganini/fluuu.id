@@ -9,3 +9,6 @@ default:
 
 compress: 
 	${UGLIFY} ${VENDORS}raf.js ${VENDORS}three.js ${VENDORS}three.orbit.js ${VENDORS}wagner/Wagner.js ${VENDORS}wagner/Wagner.base.js js/main.js --compress -o js/main.min.js
+	
+deploy: 
+	aws s3 sync . s3://fluuu.id/old --exclude "*.git/*" --exclude "*/node_modules/*" --exclude "npm-debug.log" --exclude "*/jspm_packages/*" --delete
