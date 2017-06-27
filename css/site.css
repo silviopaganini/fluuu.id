@@ -84,12 +84,6 @@
 }
 
 
-.animateCanvas
-{
-  opacity: 1;
-  
-}
-
 canvas
 {
   opacity : 0;
@@ -203,8 +197,8 @@ li {
   display:block;
   position:relative;
   float:left;
-  width:50%;
-  height:50%;
+  width:calc(100%/3);
+  height:350px;
   cursor:pointer;
 }
 
@@ -226,8 +220,8 @@ li > a:hover
   transform: rotateZ(0);
   -webkit-transition:0.5s ease-in-out;
   transition:0.5s ease;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+  /*-webkit-filter: grayscale(100%);*/
+  /*filter: grayscale(100%);*/
 }
 
 #splash .arrow { background:url(../img/down_arrow.svg); background-size:cover; }
@@ -271,8 +265,8 @@ li .img {
 
 li > a:hover .img {
   opacity:0.2;
-  -webkit-filter: grayscale(0%);
-  filter: grayscale(0%);
+  /*-webkit-filter: grayscale(0%);
+  filter: grayscale(0%);*/
 }
 
 li > a:hover .arrow {
@@ -325,6 +319,10 @@ header .logo { float:right; padding-top:18px; margin-right:15px; height:15px; ma
 
 @media( max-width:760px ) {
   li { width:100%; } 
+}
+
+@media( max-width:1280px ) {
+  li { width:50%; } 
 }
 
 @media( min-width:960px ) {
