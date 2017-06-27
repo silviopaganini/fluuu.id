@@ -21,8 +21,9 @@
   },
   "scripts": {
     "start": "budo js/src/index.js:js/main.js --live -- -t babelify",
-    "build": "browserify js/src/index.js -o js/main.js -t [ babelify ] | uglifyjs -c > js/main.min.js",
-    "deploy": "aws s3 sync . s3://fluuu.id/old --exclude \"*.git/*\" --exclude \"*/node_modules/*\" --exclude \"npm-debug.log\" --exclude \"*/jspm_packages/*\" --delete"
+    "build": "browserify js/src/index.js -o js/main.js -t [ babelify ]",
+    "compress": "uglifyjs --compress --mangle -o js/index.min.js -- js/main.js",
+    "deploy": "aws s3 sync . s3://fluuu.id/old --exclude '*.git/*' --exclude 'node_modules/*' --exclude 'npm-debug.log' --delete"
   },
   "dependencies": {
     "@superguigui/wagner": "^0.1.5",
