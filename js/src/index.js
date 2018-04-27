@@ -1,9 +1,9 @@
 import eve from 'dom-events';
 import scrollToElement from 'scroll-to-element';
-import App from './app';
+// import App from './app';
 
-const app = new App();
-app.init();
+// const app = new App();
+// app.init();
 
 eve.on(document.querySelector('.labs'), 'click', () => {
   scrollToElement(document.querySelector('section[id="labs"]'), {
@@ -11,4 +11,3 @@ eve.on(document.querySelector('.labs'), 'click', () => {
     ease: 'in-out-quint',
   });
 });
-

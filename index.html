@@ -37,21 +37,31 @@
 
         <meta name="google-site-verification" content="l4v4cHbepB0d22-7xzEK6OK0owdvkEJJdnJshrdhy2A" />
 
-        <link rel="stylesheet" href="css/site.css">
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
         <div id="wrapper">
             <section id="splash">
-                <div id="containerCanvas"></div>
-                <div class="table fixed">
+                <div id="containerCanvas">
+                  <video id='vid' loop autoplay playsinline muted>
+                    <source src="/img/03.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <div class="title-arrow">
+                  <h1>creative technology collective</h1>
+                  <a class="arrow labs"></a>
+                </div>
+
+
+                <!-- <div class="table fixed">
                     <div class="row">
                         <div class="cell">
                             <img src="img/fluuuid.svg" alt="FLUUUID" class="logo" />
                             <h1>creative technology collective</h1>
-                            <a class="arrow labs"></a>
+
                         </div>
                     </div>
-                </div>
+                </div> -->
             </section>
             <section id="labs">
                 <ul>
@@ -88,7 +98,7 @@
                          </div>
                        </a>
                    </li>
-                   
+
                    <li>
                        <a href="http://resonate.io/2016" target="_blank">
                          <div class="img" style="background-image:url(img/content/thumb_resonate16.jpg)"></div>
@@ -118,7 +128,7 @@
                           </div>
                         </a>
                     </li>
-                    
+
                     <li>
                         <a href="http://labs.fluuu.id/curl/" target="_blank">
                           <div class="img" style="background-image:url(img/content/thumb_curl.jpg)"></div>
@@ -133,7 +143,7 @@
                           </div>
                         </a>
                     </li>
-                    
+
                     <li>
                         <a href="http://labs.fluuu.id/generative-forms/dist/index.html" target="_blank">
                           <div class="img" style="background-image:url(img/content/thumb_generative.jpg)"></div>
@@ -148,7 +158,7 @@
                           </div>
                         </a>
                     </li>
-                    
+
                     <li>
                         <a class="awwwards" href="http://www.awwwards.com/web-design-awards/resonate-io-2015-1" target="_blank"></a>
                         <a href="http://resonate.io/2015" target="_blank">
@@ -165,9 +175,9 @@
                         </a>
                     </li>
 
-                    
 
-                    
+
+
 
                     <li>
                         <a href="http://labs.fluuu.id/geo/dist/index.html" target="_blank">
@@ -293,22 +303,17 @@
                 </ul>
             </section>
             <section id="footer">
-                <div class="table">
-                    <div class="row">
-                        <div class="cell">
-                            <a href="mailto:heeey@fluuu.id">heeey@fluuu.id</a><br><br><br>
-                            <a href="http://twitter.com/fluuuid" target="_blank"><img src="img/twitter.png" style="width: 30px;"></a>
-                            <a href="https://www.facebook.com/fluuuid/" target="_blank"><img src="img/fb.png" style="width: 30px;"></a>
-                            <a href="https://github.com/fluuuid/" target="_blank"><img src="img/gh.png" style="width: 30px;"></a>
-                            <a href="https://www.linkedin.com/company/fluuuid" target="_blank"><img src="img/in.png" style="width: 30px;"></a>
-
-                        </div>
-                    </div>
-                </div>
+              <a href="mailto:heeey@fluuu.id">heeey@fluuu.id</a>
+              <div class="footer-social">
+                <a href="http://twitter.com/fluuuid" target="_blank"><img src="img/twitter.png" style="width: 30px;"></a>
+                <a href="https://www.facebook.com/fluuuid/" target="_blank"><img src="img/fb.png" style="width: 30px;"></a>
+                <a href="https://github.com/fluuuid/" target="_blank"><img src="img/gh.png" style="width: 30px;"></a>
+                <a href="https://www.linkedin.com/company/fluuuid" target="_blank"><img src="img/in.png" style="width: 30px;"></a>
+              </div>
             </section>
         </div>
 
-        <script src="js/index.min.js"></script>
+        <script src="./js/main.min.js"></script>
 
     </body>
 
